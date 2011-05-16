@@ -1,0 +1,28 @@
+{
+   "background_page": "background_page.html",
+   "browser_action": {
+      "default_icon": "images/BrowserActionIcon.png",
+      "default_title": "1Password",
+      "popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "src/jquery-1.4.3.min.js", "src/json2-min.js", "src/content_script.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "Password and identity manager for Mac, Windows, iOS and Android.",
+   "icons": {
+      "128": "images/1Password128.png",
+      "16": "images/1Password16.png",
+      "48": "images/1Password48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQbHjnaIAbGlIr0XmGlBqGZGkand5WkkDudDHZF/4Wk+gUbljQxiDA+hhRl/klVIMqlSA1+wruiTes+vWNptNtqcbWaJ8ecFQuqUYAiYYJalvvfQfG+tP+EkaW4sqY0fU0VuDjVs4CAVAFc4MNhYK7uC3xx8s4qzMBcbY+RD2f9QIDAQAB",
+   "name": "1Password",
+   "omnibox": {
+      "keyword": "1p"
+   },
+   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+   "update_url": "http://agile.ws/dist/chrome-updates.xml",
+   "version": "3.6.1.30941"
+}

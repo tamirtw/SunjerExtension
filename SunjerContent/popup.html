@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<link href="popup.css" rel="stylesheet" />
+	
+	<script src='src/jquery-1.4.3.min.js'></script>
+	<script src='src/json2-min.js'></script>
+	
+	
+	
+	
+
+	
+	
+	<script src='src/popup.js'></script>
+	
+	
+	
+	
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+	if (navigator.userAgent.match(/Windows/i)) {
+		var cssNode = document.createElement('link');
+		cssNode.type = 'text/css';
+		cssNode.rel = 'stylesheet';
+		cssNode.href = 'windows.css';
+		cssNode.media = 'screen';
+		$('head')[0].appendChild(cssNode);
+	}
+	
+             	var tabBar = new TabBar();
+
+//	$(document).ready(function() {
+//		updatePopup(window, chrome.extension.getBackgroundPage().getPlugin());
+//	});
+</script>
+
+
+<div id="wrapper">
+
+<!--	<div id="lockedDoor" style="display:none">
+		<img src="images/rivet.png" style="position:absolute; top:6px; left:6px" />
+		<img src="images/rivet.png" style="position:absolute; top:6px; right:6px" />
+		<img src="images/rivet.png" style="position:absolute; bottom:6px; left:6px" />
+		<img src="images/rivet.png" style="position:absolute; bottom:6px; right:6px" />
+	
+		<div id="lock">
+			<img src="images/lock-unlocked.png" />
+			<img src="images/lock-locked.png"/>
+			<img src="images/lock-shadow.png" />
+		</div>
+		<div id="passwordEntry">
+			<label for="masterPassword"><h3>Enter Master Password</h3></label>
+			<div id="passwordPlate">
+				<input type="password" id="masterPassword" value="" autofocus />
+			</div>
+			<p class="error">Incorrect Password</p>
+			<p>Please enter your Master Password above and hit return to unlock 1Password.</p>
+		</div>
+	
+	</div>-->
+	<section id="fillOptions">
+		<header>
+			<span class="button left outRight" id="btnBack"><img src="images/back-arrow.png" /> List</span>
+			<span class="button right outRight">Edit</span>
+			<h2>Credit Cards<!-- Agile | Blog --></h2>
+			<h2 class="outRight">Item Details<!-- Agile | Blog --></h2>
+			<ul>
+				<li class="selected">Projects</li><li>Settings</li>
+			</ul>
+		</header>
+		
+		<section id="details" style="display:none">
+			<h3><img src="images/action-arrow.png" /><span id="detailsTitle"></span></h3>
+			<p id="detailsURL"></p>
+			<ul id="detailsLogin">
+				<li id="detailsUsername"><span class="label">Username</span><span class="detail"></span></li>
+				<li id="detailsPassword"><span class="label">Password</span><span class="detail"></span><input type="button" class="button small" value="reveal" /></li>
+				<li id="detailsNote"><span class="label">Notes</span><span class="detail"></span></li>
+			</ul>
+			<h4>All Fields</h4>
+			<ul id="detailsFields">
+				<!-- <li><span class="label">up_usernamelongtest</span><span class="detail">wendyappleseed</span></li> -->
+			</ul>
+			
+			<div id="detailsDynamic">
+			</div>
+		</section>
+
+		<section id="passDetails" style="display:none">
+			<h3><img src="images/action-arrow.png" /><span id="passDetailsTitle"></span></h3>
+			<p id="passDetailsURL"></p>
+			<ul id="passDetailsLogin">
+				<li id="passDetailsPassword"><span class="label">Password</span><span class="detail"></span></li>
+				<li id="passDetailsNote"><span class="label">Notes</span><span class="detail"></span></li>
+			</ul>
+		</section>
+
+		<section id="passGen" style="display:none">			
+			<input type="text" name="password" id="password" value="" spellcheck="false"/>
+			<span id="btnFillPassword" class="button large">Fill</span>
+			
+			<p id="strength" class="clear">Strength<span id="strengthMeter"><span id="meterFull"></span></span><span id="passwordStrengthDesc">Fantastic</span></p>
+			
+			<p>Length <input type="range" id="passwordLengthRange" value="20" min="5" max="50"/> <span id="passwordLength">20</span></p>
+			
+			<section id="passOptions">
+				<ul class="pillBoxOptions">
+					<li id="tabPronounceable">Pronounceable</li><li id="tabRandom" class="selected">Random</li>
+				</ul>
+				<span id="optionsPronounceable" style="display:none">
+					<p><input type="radio" name="separator" id="separatorHyphen" value="hyphen" checked /><label for="separatorHyphen">Hyphen (veni-vidi-vici)</label></p>
+					<p><input type="radio" name="separator"id="separatorDigits" value="digits" /><label for="separatorDigits">Digits (veni2vidi3vici)</label></p>
+					<p><input type="radio" name="separator" id="separatorNone" value="none" /><label for="separatorNone">None (venividivici)</label></p>
+				</span>
+				<span id="optionsRandom">
+					<p style="float:right">Symbols<input type="range" id="passwordSymbolsRange" value="0" min="0" max="10"/><span id="passwordSymbols">0</span></p>
+					<p>Digits<input type="range" id="passwordDigitsRange" value="2" min="0" max="10" /><span id="passwordDigits">6</span></p>
+					<p><input type="checkbox" id="passwordAvoidAmb" value="" /><label for="passwordAvoidAmb">Avoid ambiguous characters</label></p>
+					<p><input type="checkbox" id="passwordRepeatChars" value="" /><label for="passwordRepeatChars">Allow characters to repeat</label></p>
+				</span>
+			</section>
+			<span id="passwordHistoryButton" class="button details"><img src="images/details-indicator.png" />View password history</span>
+		</section>
+
+		<section id="items">
+
+			<div id="noItems" style="display:none">
+				<h3></h3>
+				<p></p>
+				<a id="noItemsSaveLoginButton" class="button" href="#">Save New Login</a>
+			</div>
+			
+			<div id="searchBar" style="display:none">
+				<input type="text" name="" value="" id="searchField" />
+			</div>
+
+			<div id="scrolling">		
+				<ul>
+					 <li><img class="disclosureArrow" src="images/disclosure-arrow.png" />Test 1</li>
+					<li class="selected"><img class="disclosureArrow" src="images/disclosure-arrow.png" />Test 2</li> 
+				</ul>
+				<a id="itemListSaveLoginButton" class="button" href="#" style="display:none">Save new Login</a>
+			</div>
+		</section>
+		<footer>
+			<ul id="tabBar">
+				<li id="tabLogins" class="selected"><img src="images/tab-logins.png" /><br />Logins</li><li id="tabIdentities"><img src="images/tab-identities.png" /><br />Identities</li><li id="tabWallet"><img src="images/tab-wallet.png" /><br />Credit Cards</li><li id="tabPassGen"><img src="images/tab-generator.png" /><br />Generator</li>
+			</ul>
+		</footer>
+		
+		<div id="borderLeft"></div>
+		<div id="borderRight"></div>
+	</section>
+</div>
+
+</body>
+</html>
