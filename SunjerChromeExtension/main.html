@@ -22,7 +22,7 @@
                    if (req.readyState == 4)
                    {
                         doc = eval('(' + req.responseText + ')');
-                        for(i=0;i<2;i++){
+                        for(var i in doc.projects){
                           var startLi = document.createElement("li");
                           var newDiv = document.createElement("div");
                           newDiv.innerHTML = doc.projects[i].projectName;
@@ -33,7 +33,7 @@
                           newUl = document.createElement("ul");
                           startLi.appendChild(newUl);
 
-                        for(j=0;j<3;j++){
+                        for(var j in doc.projects[i].modelsList){
                           var newLi = document.createElement("li");
                           newUl.appendChild(newLi);
                           var newA = document.createElement("a");

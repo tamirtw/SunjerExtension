@@ -4,7 +4,7 @@
  */
 
 {
-    "projects":[{"projectName":"project_1","modelsList":["model11","model12","model13"]},
+    "projects":[{"projectName":"project_1","modelsList":["model11","model12"]},
                 {"projectName":"project_2","modelsList":["model21","model22","model23"]}]
     
 }
