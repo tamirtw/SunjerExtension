@@ -13,24 +13,27 @@
                 var jsonProjects = {"projects": ["project_1","project_2"]};
                 var projectsModels = {"project_1":["model11","model12","model13"]};
 
-                for(i=0;i<1;i++){
-                  newDiv = document.createElement("div");
+                for(i=0;i<2;i++){
+                  var startLi = document.createElement("li");
+                  var newDiv = document.createElement("div");
                   newDiv.innerHTML = jsonProjects.projects[i];
-                  var start = document.getElementById("start");
-                  start.appendChild(newDiv);
+                  var start = document.getElementById("boxMoreInfo");
+                  start.appendChild(startLi);
+                  startLi.appendChild(newDiv);
 
                   newUl = document.createElement("ul");
-                  start.appendChild(newUl);
+                  startLi.appendChild(newUl);
 
                   for(j=0;j<3;j++){
-                      newLi = document.createElement("li");
+                      var newLi = document.createElement("li");
                       newUl.appendChild(newLi);
-                      newA = document.createElement("a");
+                      var newA = document.createElement("a");
                       newA.innerHTML = projectsModels.project_1[j];
                       newLi.appendChild(newA);
                   }
 
                 }
+                
                 $('#boxMoreInfo').uiPod({
                         rootTitle: 'User Porjects :',
                         duration: 250,
@@ -61,9 +64,7 @@
   <body>
  		<div style="width: 250px;">
 			<ul id="boxMoreInfo">
-				<li id="start">
-				  
-				</li>
+				
                         </ul>
 		 </div>
 	</body>
