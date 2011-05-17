@@ -10,30 +10,46 @@
 
     <script type="text/javascript">
             $(document).ready(function() {
-                var jsonProjects = {"projects": ["project_1","project_2"]};
-                var projectsModels = {"project_1":["model11","model12","model13"]};
+                // json request
+                var req = new XMLHttpRequest();
+                req.open("GET", "json/app.json", true);
+                req.onreadystatechange = myCode;   // the handler
+                req.send(null);
+                var doc;
 
-                for(i=0;i<2;i++){
-                  var startLi = document.createElement("li");
-                  var newDiv = document.createElement("div");
-                  newDiv.innerHTML = jsonProjects.projects[i];
-                  var start = document.getElementById("boxMoreInfo");
-                  start.appendChild(startLi);
-                  startLi.appendChild(newDiv);
+                function myCode()
+                {
+                   if (req.readyState == 4)
+                   {
+                        doc = eval('(' + req.responseText + ')');
+                        for(i=0;i<2;i++){
+                          var startLi = document.createElement("li");
+                          var newDiv = document.createElement("div");
+                          newDiv.innerHTML = doc.projects[i].projectName;
+                          var start = document.getElementById("boxMoreInfo");
+                          start.appendChild(startLi);
+                          startLi.appendChild(newDiv);
 
-                  newUl = document.createElement("ul");
-                  startLi.appendChild(newUl);
+                          newUl = document.createElement("ul");
+                          startLi.appendChild(newUl);
 
-                  for(j=0;j<3;j++){
-                      var newLi = document.createElement("li");
-                      newUl.appendChild(newLi);
-                      var newA = document.createElement("a");
-                      newA.innerHTML = projectsModels.project_1[j];
-                      newLi.appendChild(newA);
-                  }
+                        for(j=0;j<3;j++){
+                          var newLi = document.createElement("li");
+                          newUl.appendChild(newLi);
+                          var newA = document.createElement("a");
+                          newA.innerHTML = doc.projects[i].modelsList[j];
+                          newLi.appendChild(newA);
+                            }
 
+                      }
+                   }
                 }
-                
+          /****************************************************************************/
+              /* This is the code that runs the menu ,
+               * it can't be run with the json request and i don't know why .
+               * in order to run the menu disable the json request .
+               * godd night :)
+
                 $('#boxMoreInfo').uiPod({
                         rootTitle: 'User Porjects :',
                         duration: 250,
@@ -41,10 +57,15 @@
                         useSideScroller: true,
                         fnAfter: function() {
 
-                        }
-                });
+               }}); */
             });
     </script>
+   
+            
+                
+            
+            
+  
 
     <!-- style for drill down menu -->
     <style>

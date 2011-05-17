@@ -1,9 +1,0 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-{
-    "project_1":{"models":["model11","model12","model13"]},
-    "project_2":{"models":["model21","model22","model23"]}
-}
