@@ -3,6 +3,19 @@
  * and open the template in the editor.
  */
 {
+    "background_page": "main.html",
+   "content_scripts": [ {
+      "js": [ "xpath.js" ],
+      "matches": [ "*://*/*" ]
+   } ],
+   "default_locale": "en",
+   "description": "Gets the xpath of an element using chrome's context menu.",
+   "icons": {
+      "128": "Images/icon128.png",
+      "16": "Images/icon16.png",
+      "48": "Images/icon48.png"
+   },
+   
   "name": "Sunjer-Project Extension",
   "version": "1.0",
   "description": "Data Scarpping",
@@ -10,7 +23,7 @@
     "default_icon": "images/BrowserActionIcon.png",
     "popup": "main.html"
   },
-  "permissions": [
-    "http://api.flickr.com/"
+  "permissions": ["contextMenus"
+    
   ]
 }
