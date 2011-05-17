@@ -16,7 +16,7 @@ jQuery.fn.extend({
 			direction: 'east', 							// the direction from and to which a new menu panel slides in and out.
 			inDirection: null, 							    // the direction from which a new menu panel should slide in.
 			outDirection: null, 							// the direction to which an old menu panel should slide out.
-			height: '200px',
+			height: '350px',
 			trueHeight: 0,
 			width: '',
 			useSideScroller: false,
@@ -50,7 +50,7 @@ jQuery.fn.extend({
 			ul: function() { return fixOffsets(jQuery('<ul class="' + themeRoller.labelHover + '" />')); },
 			title: function(title) { return jQuery('<div class="' + themeRoller.header + '" style="z-index: 9999; position: relative; height: inherit;">' + title + '</div>'); },
 			titleBack: function() { return jQuery('<span style="font-size: x-small; top: -1px; position: relative; display: none;">back | </span>'); },
-			titleBaseIcon: function() { return jQuery('<span style="float: left; margin: 1px 4px 0 0;" class="ui-icon ui-icon-help"></span>'); },
+			titleBaseIcon: function() { return jQuery('<span style="float: left; margin: 1px 4px 0 0;" class="ui-icon ui-icon-bullet"></span>'); },
 			titleRegIcon: function() { return jQuery('<span style="float: left; margin: 1px 4px 0 0; cursor: pointer; z-index: 9999;" class="ui-icon ui-icon-circle-arrow-w"></span>'); },
 			labelIcon: function() { return jQuery('<span class="ui-icon ui-icon-carat-1-e" style="position: relative; margin: 1px 10px auto auto; float: right; top: 0px;"></span>'); },
 			scrollUpper: function() { return jQuery('<div class="' + themeRoller.scrollBar + ' upperArrow" style="z-index:99999; position: absolute; width: 100%; vertical-align: bottom; overflow: hidden; top: 0px; height: 12px; cursor: pointer; text-align: center;"></div>').fadeTo(0, 0.85); },
