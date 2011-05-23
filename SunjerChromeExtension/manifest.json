@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 {
-    "background_page": "main.html",
+   //"background_page": "addSelectorPage.html",
    "content_scripts": [ {
-      "js": [ "jsFiles/xpath.js" ],
+      "js": [ "Plugins/XPathSelector/xpath.js" ],
       "matches": [ "*://*/*" ]
    } ],
    "default_locale": "en",
@@ -18,7 +18,7 @@
   "description": "Data Scarpping",
   "browser_action": {
     "default_icon": "images/BrowserActionIcon.png",
-    "popup": "main.html"
+    "popup": "addSelectorPage.html"
   },
   "permissions": ["contextMenus"
     
