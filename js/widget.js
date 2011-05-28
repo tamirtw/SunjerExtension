@@ -277,7 +277,7 @@ sunjer.panel = {
 
     update:function(){
         sunjer.chrome.getMenuData("bla=5&j=2", function(response) {
-            alert(response);
+//            alert(response);
             if (response) {
                 //                $('#sunjer-drilldown-menu').html(menuHtml);
                 doc = eval('(' + response + ')');
@@ -292,15 +292,45 @@ sunjer.panel = {
                     newUl = document.createElement("ul");
                     startLi.appendChild(newUl);
 
-                    for(var j in doc.projects[i].modelsList){
-                        var newLi = document.createElement("li");
-                        newUl.appendChild(newLi);
-                        var newA = document.createElement("a");
-                        newA.innerHTML = doc.projects[i].modelsList[j];
-                        newLi.appendChild(newA);
-                    }
+                    var newLi = document.createElement("li");
+                    newUl.appendChild(newLi);
+                    var newDiv = document.createElement("div");
+                    newDiv.innerHTML ="Models - List";
+                    newLi.appendChild(newDiv);
+
+
+                    /*var newLi = document.createElement("li");
+                    newUl.appendChild(newLi);
+                    var newA = document.createElement("a");
+                    newA.innerHTML ="Web Source - List";
+                    newLi.appendChild(newA);
+
+                    var newLi = document.createElement("li");
+                    newUl.appendChild(newLi);
+                    var newA = document.createElement("a");
+                    newA.innerHTML ="Scenario - List";
+                    newLi.appendChild(newA);*/
+
+
+//                    for(var j in doc.projects[i].modelsList){
+//                        var newLi = document.createElement("li");
+//                        newUl.appendChild(newLi);
+//                        var newA = document.createElement("a");
+//                        newA.innerHTML = doc.projects[i].modelsList[j];
+//                        newLi.appendChild(newA);
+//                    }
+                    
 
                 }
+                var startLi = document.createElement("li");
+                    var newDiv = document.createElement("div");
+                    newDiv.innerHTML = "Add New Project";
+                    var start = document.getElementById("sunjer-drill-down-menu");
+                    start.appendChild(startLi);
+                    startLi.appendChild(newDiv);
+
+                   
+                    
                 $('#sunjer-drill-down-menu').uiPod({
                     rootTitle: 'More Info',
                     duration: 250,
