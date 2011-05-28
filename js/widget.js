@@ -276,10 +276,31 @@ sunjer.panel = {
     },
 
     update:function(){
-        sunjer.chrome.getMenuData("bla=5&j=2", function(menuHtml) {
-            if (menuHtml) {
-                alert("my html " + menuHtml);
-                $('#sunjer-drilldown-menu').html(menuHtml);
+        sunjer.chrome.getMenuData("bla=5&j=2", function(response) {
+            alert(response);
+            if (response) {
+                //                $('#sunjer-drilldown-menu').html(menuHtml);
+                doc = eval('(' + response + ')');
+                for(var i in doc.projects){
+                    var startLi = document.createElement("li");
+                    var newDiv = document.createElement("div");
+                    newDiv.innerHTML = doc.projects[i].projectName;
+                    var start = document.getElementById("sunjer-drill-down-menu");
+                    start.appendChild(startLi);
+                    startLi.appendChild(newDiv);
+
+                    newUl = document.createElement("ul");
+                    startLi.appendChild(newUl);
+
+                    for(var j in doc.projects[i].modelsList){
+                        var newLi = document.createElement("li");
+                        newUl.appendChild(newLi);
+                        var newA = document.createElement("a");
+                        newA.innerHTML = doc.projects[i].modelsList[j];
+                        newLi.appendChild(newA);
+                    }
+
+                }
                 $('#sunjer-drill-down-menu').uiPod({
                     rootTitle: 'More Info',
                     duration: 250,

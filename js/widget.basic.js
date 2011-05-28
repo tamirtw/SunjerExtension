@@ -19,20 +19,10 @@ sunjer.panel.basic = {
             id: 'sunjer-controls'
         });
 
-            var menu = $('<div>',{
-                id: 'testing',
-                html: 'WEEeEeee!!!'
-            });
-
-       
-
-
-
 
             var group = $('<div>', {
-                id: 'sunjer-drilldown-menu'
-            }).append(menu)
-            .appendTo(this.elements.container);
+                id: 'sunjer-drill-down-menu'
+            }).appendTo(this.elements.container);
 
         
             

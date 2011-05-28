@@ -249,10 +249,10 @@ function enablePageIcon(tab) {
 
 function getMenuData(query,callback) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "data/menuData.txt", true);
-    xhr.onreadystatechange = function() {
+    xhr.open("GET", "data/app.json", true);
+    xhr.onreadystatechange = function() {   
         if (xhr.readyState == 4) {
-            callback(xhr.responseText);
+                callback(xhr.responseText);
             // innerText does not let the attacker inject HTML elements.
 //            document.getElementById("resp").innerText = xhr.responseText;
         }
