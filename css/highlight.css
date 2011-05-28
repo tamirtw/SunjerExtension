@@ -1,0 +1,7 @@
+/** Highlight CSS for sunjer **/
+
+.sunjer-selection {
+    background-color: #65f166 !important;
+    position: absolute !important;
+    z-index: 2147483644 !important;
+}

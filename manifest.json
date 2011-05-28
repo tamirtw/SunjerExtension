@@ -1,0 +1,31 @@
+{
+   "background_page": "background.html",
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/libs/css-utils.js", "js/apply-css.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   },{
+      "all_frames": true,
+      "css": [ "css/highlight.css", "css/widget.css", "css/controls.css", "css/modal.css", "css/colorpicker.css", "css/scrollbars.css", "css/tipsy.css", "css/shortcuts_help.css" ,"css/cupertino/jquery-ui-1.8.13.custom.css"],
+      "js": [ "js/libs/jquery.js", "js/sunjer.js", "js/chrome.js", "js/init.js", "js/widget.js", "js/widget.basic.js", "js/events.js", "js/widget-ui.js", "js/style.js", "js/page.js", "js/contextmenu.js", "js/libs/selectorGenerator.js", "js/libs/selectionBox.js", "js/libs/modalbox.js", "js/libs/utils.js", "js/libs/colorpicker.js", "js/libs/jquery.tipsy.js", "js/libs/parser.js", "js/shortcuts.js","js/libs/jquery.uiPod.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Adapt the web's appearance",
+   "icons": {
+      "128": "images/icons/icon128.png",
+      "16": "images/icons/icon16.png",
+      "48": "images/icons/icon48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDl/JW/Y8CI0SDOeXfgRv5xJnnafrTXy6UiQiZwb1kPJKM156e7SpMoUnMz6s2Kf8d6xihTsgDcVkpVR0if7DCDZeqpamJrQFpg1aMcbb1+/5EtqtDxaKT+gUjHx8R120MhdL6NuSWYZvREcxP2SGiEP0PmSRQAVScw8dZ0IU6nzwIDAQAB",
+   "name": "sunjer",
+   "options_page": "options.html",
+   "page_action": {
+      "default_icon": "images/icons/sunjer.png",
+      "default_title": "Click to start editing using sunjer"
+   },
+   "permissions": [ "tabs", "bookmarks", "notifications" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}

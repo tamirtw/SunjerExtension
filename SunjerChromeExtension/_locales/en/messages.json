@@ -1,6 +1,0 @@
-{
-   "getXPath": {
-      "description": "Text in the context menu option.",
-      "message": "Get XPath of this element !"
-   }
-}
