@@ -7,7 +7,7 @@
     "projects":[
                 {"projectName":"project_1",
                     "modelsList":["model11","model12"],
-                    "webSourceList":["webSource_1","webSource_2"],
+                    "webSourceList":["webSource_1","webSource_2",],
                     "scenarioList":["scenario_1","scenario_2"]
                 },
                 {"projectName":"project_2",

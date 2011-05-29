@@ -280,6 +280,9 @@ sunjer.panel = {
 //            alert(response);
             if (response) {
                 //                $('#sunjer-drilldown-menu').html(menuHtml);
+
+                /* to set a leaf just add attribute to the 'a' tag*/
+
                 doc = eval('(' + response + ')');
                 for(var i in doc.projects){
                     var startLi = document.createElement("li");
@@ -291,38 +294,77 @@ sunjer.panel = {
 
                     newUl = document.createElement("ul");
                     startLi.appendChild(newUl);
-
+                    /* Building the model list*/
                     var newLi = document.createElement("li");
                     newUl.appendChild(newLi);
                     var newDiv = document.createElement("div");
                     newDiv.innerHTML ="Models - List";
                     newLi.appendChild(newDiv);
+                    inner_Ul = document.createElement("ul");
+                    newLi.appendChild(inner_Ul);
 
+                    for(var j in doc.projects[i].modelsList){
+                        var new_Li = document.createElement("li");
+                        inner_Ul.appendChild(new_Li);
+                        var newA = document.createElement("a");
+                        newA.innerHTML = doc.projects[i].modelsList[j];
+                        new_Li.appendChild(newA);
+                    }
 
-                    /*var newLi = document.createElement("li");
-                    newUl.appendChild(newLi);
+                    var new_Li = document.createElement("li");
+                    inner_Ul.appendChild(new_Li);
                     var newA = document.createElement("a");
-                    newA.innerHTML ="Web Source - List";
-                    newLi.appendChild(newA);
+                    newA.innerHTML = "add new model";
+                    new_Li.appendChild(newA);
 
+                    /* Building the web-source list*/
                     var newLi = document.createElement("li");
                     newUl.appendChild(newLi);
+                    var newDiv = document.createElement("div");
+                    newDiv.innerHTML ="Web Source - List";
+                    newLi.appendChild(newDiv);
+                    inner_Ul = document.createElement("ul");
+                    newLi.appendChild(inner_Ul);
+
+                    for(var j in doc.projects[i].modelsList){
+                        var new_Li = document.createElement("li");
+                        inner_Ul.appendChild(new_Li);
+                        var newA = document.createElement("a");
+                        newA.innerHTML = doc.projects[i].webSourceList[j];
+                        new_Li.appendChild(newA);
+                    }
+
+                    var new_Li = document.createElement("li");
+                    inner_Ul.appendChild(new_Li);
                     var newA = document.createElement("a");
-                    newA.innerHTML ="Scenario - List";
-                    newLi.appendChild(newA);*/
+                    newA.innerHTML = "add new web source";
+                    new_Li.appendChild(newA);
 
+                    /* Building the scenario list*/
+                    var newLi = document.createElement("li");
+                    newUl.appendChild(newLi);
+                    var newDiv = document.createElement("div");
+                    newDiv.innerHTML ="Scenario - List";
+                    newLi.appendChild(newDiv);
+                    inner_Ul = document.createElement("ul");
+                    newLi.appendChild(inner_Ul);
 
-//                    for(var j in doc.projects[i].modelsList){
-//                        var newLi = document.createElement("li");
-//                        newUl.appendChild(newLi);
-//                        var newA = document.createElement("a");
-//                        newA.innerHTML = doc.projects[i].modelsList[j];
-//                        newLi.appendChild(newA);
-//                    }
+                    for(var j in doc.projects[i].modelsList){
+                        var new_Li = document.createElement("li");
+                        inner_Ul.appendChild(new_Li);
+                        var newA = document.createElement("a");
+                        newA.innerHTML = doc.projects[i].scenarioList[j];
+                        new_Li.appendChild(newA);
+                    }
+                    var new_Li = document.createElement("li");
+                    inner_Ul.appendChild(new_Li);
+                    var newA = document.createElement("a");
+                    newA.innerHTML = "add new scenario";
+                    new_Li.appendChild(newA);
                     
 
                 }
-                var startLi = document.createElement("li");
+                    var startLi = document.createElement("li");
                     var newDiv = document.createElement("div");
                     newDiv.innerHTML = "Add New Project";
                     var start = document.getElementById("sunjer-drill-down-menu");
